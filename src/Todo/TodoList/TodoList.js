@@ -14,7 +14,6 @@ function TodoList(props) {
                         todo={ todo }
                         key={todo.id}
                         index={index}
-                        change={props.onToggle}
                     />
                 )
             })}

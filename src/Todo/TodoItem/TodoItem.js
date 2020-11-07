@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import PropTypes from "prop-types"
 import './TodoItem.css'
+import Context from "../../context";
 
 function TodoItem({ todo, index, change }) {
+    const { removeTodo,toggleTodo } = useContext(Context)
+
     const classes = []
     if (todo.completed) {
         classes.push('todo-done')
@@ -14,13 +17,13 @@ function TodoItem({ todo, index, change }) {
                     className='mr-1'
                     checked={todo.completed}
                     type='checkbox'
-                    onChange={() => change(todo.id)}/>
+                    onChange={toggleTodo.bind(null, todo.id)}/>
                 <strong>{index + 1 }</strong>
                 &nbsp;
                 {todo.title}
             </span>
 
-            <button className='delete-btn'>&times;</button>
+            <button className='delete-btn' onClick={removeTodo.bind(null, todo.id)}>&times;</button>
         </li>
     )
 }
