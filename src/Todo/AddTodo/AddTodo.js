@@ -30,10 +30,12 @@ function AddTodo({ onCreate }) {
     }
 
     return (
-        <form className='mb-1' onSubmit={submitHandler}>
-            <input {...input.bind}/>
-            <button type='submit'>Add</button>
-        </form>
+        <div className="d-block mb-1">
+            <form className="form-edit ml-1" onSubmit={submitHandler}>
+                <input {...input.bind}/>
+                <button type='submit'>Add</button>
+            </form>
+        </div>
     )
 }
 
