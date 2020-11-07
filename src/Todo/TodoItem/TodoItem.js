@@ -4,11 +4,11 @@ import './TodoItem.css'
 import Context from "../../context";
 
 function TodoItem({ todo, index, change }) {
-    const { removeTodo,toggleTodo } = useContext(Context)
+    const { removeTodo, toggleTodo } = useContext(Context)
 
     const classes = []
     if (todo.completed) {
-        classes.push('todo-done')
+        classes.push('todo-done','colorGrey')
     }
     return (
         <li className='todo-item'>
