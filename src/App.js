@@ -40,6 +40,17 @@ function App() {
       )
   }
 
+  function addTodo(title) {
+      setTodos(
+          todos.concat([{
+              title: title,
+              id: Date.now(),
+              completed: false
+          }])
+
+      )
+  }
+
 
 
 
@@ -49,7 +60,7 @@ function App() {
               <div className="headingList d-flex">
                   <h1>React Tutorial</h1>
               </div>
-              <AddTodo/>
+              <AddTodo onCreate={ addTodo }/>
               {todos.length ? <TodoList todos={ todos }/> : <p className="colorGrey">No todos</p>}
 
           </div>

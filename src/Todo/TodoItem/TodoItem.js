@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import './TodoItem.css'
 import Context from "../../context";
 
-function TodoItem({ todo, index, change }) {
+function TodoItem({ todo, index}) {
     const { removeTodo, toggleTodo } = useContext(Context)
 
     const classes = []
@@ -31,7 +31,6 @@ function TodoItem({ todo, index, change }) {
 TodoItem.propTypes = {
     todo: PropTypes.object.isRequired,
     index: PropTypes.number,
-    change: PropTypes.func.isRequired
 }
 
 
