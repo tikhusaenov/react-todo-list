@@ -1,28 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TodoList from "./Todo/TodoList/TodoList";
 import Context from "./context";
 import AddTodo from "./Todo/AddTodo/AddTodo";
 
 
 function App() {
-  const [todos, setTodos] = React.useState([
-      {
-          id: 1,
-          completed: false,
-          title: 'Купить хлеб'
-      },
-      {
-          id: 2,
-          completed: false,
-          title: 'Купить масло'
-      },
-      {
-          id: 3,
-          completed: false,
-          title: 'Купить молоко'
-      },
-  ])
+  const [todos, setTodos] = useState([])
 
+  useEffect(() => {
+      fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+          .then(response => response.json())
+          .then(todos => setTimeout(() => setTodos(todos),2000  ))
+  },[])
 
   function toggleTodo(id) {
       setTodos(
@@ -34,11 +23,13 @@ function App() {
           })
       )
   }
+
   function removeTodo(id) {
       setTodos(
           todos.filter(todo => todo.id !== id)
       )
   }
+
 
   function addTodo(title) {
       setTodos(
