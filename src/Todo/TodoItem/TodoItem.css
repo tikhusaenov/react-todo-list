@@ -1,0 +1,22 @@
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+.mr-1 {
+    margin-right: 1rem;
+}
+.delete-btn {
+    background: red;
+    border-radius: 50%;
+    color: white;
+    border: none;
+    outline: none;
+}
+.todo-done {
+    text-decoration: line-through;
+}
